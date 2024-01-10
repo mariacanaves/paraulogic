@@ -45,7 +45,15 @@ body {
 }
 
 .slot.green {
-    background-color: #4caf50;
+    background-color: #bdecb6;
+}
+
+.slot.red {
+    background-color: #ff6961;
+}
+
+.slot.yellow {
+    background-color: #fdfd96;
 }
 
 .panel-title {
