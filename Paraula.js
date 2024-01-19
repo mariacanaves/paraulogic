@@ -9,14 +9,25 @@ function enviar() {
         window.alert('HA DE TENIR 5 LLETRES')
     }
     else if(paraula.toUpperCase()==secreta){
+
         window.alert('HO HAS ACONSEGUIT')
     }
     else{
         let text='<div class="resposta">'
         for(let i=0;i<paraula.length;i++){
-            text += "<div class='slot'>"
+            if(paraula.toUpperCase().charAt(i)==secreta.charAt(i)){
+                text += "<div class='slot green'>"
+                }
+            else if (secreta.includes(paraula.toUpperCase().charAt(i))==true){
+                text += "<div class='slot yellow'>"
+            }
+            else{
+                text += "<div class='slot'>"
+            }
             text+= paraula.toUpperCase().charAt(i)
             text+="</div>"
+
+
 
         }
          text+='</div>'
