@@ -12,10 +12,14 @@ function enviar() {
         window.alert('HO HAS ACONSEGUIT')
     }
     else{
-        let text=''
+        let text='<div class="resposta">'
         for(let i=0;i<paraula.length;i++){
-            text += paraula.toUpperCase().charAt(i)
+            text += "<div class='slot'>"
+            text+= paraula.toUpperCase().charAt(i)
+            text+="</div>"
+
         }
+         text+='</div>'
         document.getElementById('resposta').innerHTML += text + "<br>"
     }
 
