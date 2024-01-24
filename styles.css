@@ -15,6 +15,12 @@ body {
     font-size: 45px;
 }
 
+.restart {
+    text-align: center;
+    width: 100%;
+    font-size: 25px;
+}
+
 .respostes{
     display: inline;
     flex-wrap: wrap;

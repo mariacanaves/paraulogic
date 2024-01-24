@@ -1,11 +1,14 @@
 // la paraula secreta
 const secreta='MARIA'
 
+ document.getElementById('pista').value = 'Pista: té '+secreta.length+' lletres'
+
 function enviar() {
     let paraula =document.getElementById('paraula').value
     // alerta en cas de més lletres
     if (paraula.length != secreta.length) {
         window.alert('HA DE TENIR 5 LLETRES')
+        document.getElementById('paraula').value =""
     }
 
     // cas de victoria
@@ -20,7 +23,11 @@ paraulabona += "<div class='slot green'>"
             paraulabona+="</div>"
         }
         paraulabona+="</div>"
+        // Llevar el poder escriure més paraules
+        document.getElementById('paraula').hidden=true
+        document.getElementById('button').disabled=true
         document.getElementById('resposta').innerHTML +=  paraulabona + "<br>"
+
     }
 
     // altres casos (no està be la paraula)
@@ -41,12 +48,11 @@ paraulabona += "<div class='slot green'>"
             }
             text+= paraula.toUpperCase().charAt(i)
             text+="</div>"
-
-
-
         }
          text+='</div>'
         document.getElementById('resposta').innerHTML += text + "<br>"
+        document.getElementById('paraula').value =""
+
     }
 
 }
