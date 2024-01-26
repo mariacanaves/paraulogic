@@ -1,7 +1,8 @@
-// la paraula secreta
+// la paraula secreta(posar-la en majuscules)
 const secreta='MARIA'
+intents=0
 
- document.getElementById('pista').value = 'Pista: té '+secreta.length+' lletres'
+
 
 function enviar() {
     let paraula =document.getElementById('paraula').value
@@ -13,20 +14,26 @@ function enviar() {
 
     // cas de victoria
     else if(paraula.toUpperCase()===secreta){
-        // alerta
-        window.alert('HO HAS ACONSEGUIT, la paraula secreta era '+ secreta)
+
         let paraulabona="<div class='resposta'>"
         // escriu paraula
         for(let i=0;i<secreta.length;i++){
-paraulabona += "<div class='slot green'>"
+            paraulabona += "<div class='slot green'>"
             paraulabona+=secreta.charAt(i)
             paraulabona+="</div>"
         }
         paraulabona+="</div>"
-        // Llevar el poder escriure més paraules
+        // Llevar la opció de mandar més paraules
+
         document.getElementById('paraula').hidden=true
         document.getElementById('button').disabled=true
         document.getElementById('resposta').innerHTML +=  paraulabona + "<br>"
+        document.getElementById('restart').hidden=false
+        document.getElementById('restart').disabled=false
+        // alerta
+        intents++
+        window.alert('HO HAS ACONSEGUIT, la paraula secreta era '+ secreta+' has emprat '+intents+' intents')
+        document.getElementById('intents').innerHTML='Dus ' +intents+' intents'
 
     }
 
@@ -50,9 +57,32 @@ paraulabona += "<div class='slot green'>"
             text+="</div>"
         }
          text+='</div>'
+        intents++
         document.getElementById('resposta').innerHTML += text + "<br>"
         document.getElementById('paraula').value =""
+        document.getElementById('intents').innerHTML='Dus ' +intents+' intents'
 
     }
 
 }
+function restart() {
+
+    intents=0
+    document.getElementById('resposta').innerHTML = ''
+    document.getElementById('paraula').value =""
+    document.getElementById('paraula').hidden=false
+    document.getElementById('button').disabled=false
+    document.getElementById('restart').hidden=true
+    document.getElementById('restart').disabled=true
+    document.getElementById('intents').innerHTML='Dus ' +intents+' intents'
+
+}
+
+addEventListener("DOMContentLoaded", (event) => {
+    document.getElementById('restart').hidden=true
+    document.getElementById('restart').disabled=true
+    document.getElementById('intents').innerHTML='Dus ' +intents+' intents'
+    window.alert('Tens intents infinits :o')
+    document.getElementById('ajuda').innerText  =  'Pista: '+secreta.length+' lletres'
+
+});
