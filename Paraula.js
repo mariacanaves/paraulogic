@@ -8,7 +8,7 @@ function enviar() {
     let paraula =document.getElementById('paraula').value
     // alerta en cas de més lletres
     if (paraula.length != secreta.length) {
-        window.alert('HA DE TENIR 5 LLETRES')
+        window.alert('HA DE TENIR '+secreta.length +' LLETRES')
         document.getElementById('paraula').value =""
     }
 
@@ -65,6 +65,7 @@ function enviar() {
     }
 
 }
+// Restart
 function restart() {
 
     intents=0
@@ -77,12 +78,12 @@ function restart() {
     document.getElementById('intents').innerHTML='Dus ' +intents+' intents'
 
 }
-
+//Al iniciar
 addEventListener("DOMContentLoaded", (event) => {
     document.getElementById('restart').hidden=true
     document.getElementById('restart').disabled=true
     document.getElementById('intents').innerHTML='Dus ' +intents+' intents'
     window.alert('Tens intents infinits :o')
-    document.getElementById('ajuda').innerText  =  'Pista: '+secreta.length+' lletres'
+    document.getElementById('pista').innerText  =  'Pista: '+secreta.length+' lletres'
 
 });
