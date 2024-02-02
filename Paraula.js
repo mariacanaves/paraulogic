@@ -1,6 +1,7 @@
-// la paraula secreta(posar-la en majuscules)
-const secreta='MARIA'
+// opcions paraula secreta(posar-la en majuscules)
+let llista=[ 'MARIA', "CASA", "TECLAT", "TAULA", "TAYLOR", "ARBRE", "MOIX", "PARAULA", "DIA"]
 intents=0
+let secreta=(llista[Math.trunc(Math.random()*llista.length)])
 
 
 
@@ -76,7 +77,8 @@ function restart() {
     document.getElementById('restart').hidden=true
     document.getElementById('restart').disabled=true
     document.getElementById('intents').innerHTML='Dus ' +intents+' intents'
-
+    secreta=(llista[Math.trunc(Math.random()*llista.length)])
+    document.getElementById('pista').innerText  =  'Pista: '+secreta.length+' lletres'
 }
 //Al iniciar
 addEventListener("DOMContentLoaded", (event) => {
